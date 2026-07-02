@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Juegos Educativos</title>
+
+<style>
+body{
+    font-family: Arial, sans-serif;
+    background:#e3f2fd;
+    text-align:center;
+    margin:0;
+}
+
+header{
+    background:#4CAF50;
+    color:white;
+    padding:20px;
+}
+
+#anuncio{
+    display:block;
+    background:#fff8dc;
+    border:2px solid #f4b400;
+    width:80%;
+    margin:20px auto;
+    padding:20px;
+    border-radius:10px;
+}
+
+button{
+    padding:12px 25px;
+    font-size:18px;
+    background:#4CAF50;
+    color:white;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+#juego{
+    display:none;
+    margin-top:30px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>🎮 Juegos para Aprender</h1>
+</header>
+
+<div id="anuncio">
+<h2>📚 Consejo Educativo</h2>
+<p>Recuerda lavarte las manos antes de comer y después de jugar.</p>
+<button onclick="iniciarJuego()">¡Entendido!</button>
+</div>
+
+<div id="juego">
+<h2>🎲 Juego</h2>
+<p>¡Adivina el número del 1 al 10!</p>
+
+<input type="number" id="numero">
+<button onclick="adivinar()">Intentar</button>
+
+<p id="resultado"></p>
+</div>
+
+<script>
+const secreto = Math.floor(Math.random()*10)+1;
+
+function iniciarJuego(){
+    document.getElementById("anuncio").style.display="none";
+    document.getElementById("juego").style.display="block";
+}
+
+function adivinar(){
+    let n = Number(document.getElementById("numero").value);
+
+    if(n===secreto){
+        document.getElementById("resultado").innerHTML="🎉 ¡Correcto!";
+    }else{
+        document.getElementById("resultado").innerHTML="❌ Intenta otra vez.";
+    }
+}
+</script>
+
+</body>
+</html>
